@@ -11,6 +11,7 @@ psycopg2-binary==2.9.10
 pydantic==2.9.2
 pydantic_core==2.23.4
 python-dateutil==2.9.0.post0
+python-decouple==3.8
 python-dotenv==1.0.1
 python-multipart==0.0.17
 PyYAML==6.0.2
@@ -24,5 +25,3 @@ uvicorn==0.32.0
 uvloop==0.21.0
 watchfiles==0.24.0
 websockets==14.1
-
-python-decouple==3.8
