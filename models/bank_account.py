@@ -45,9 +45,8 @@ class AccountType(str, enum.Enum):
     
 class BankAccount(Base):
     __tablename__ = "bank_account"
-
-    id = Column(Integer, primary_key=True, index=True)
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     bank_name = Column(String, nullable=False)
     branch_name = Column(String, nullable=False)
     account_type = Column(Enum(AccountType), nullable=False)
