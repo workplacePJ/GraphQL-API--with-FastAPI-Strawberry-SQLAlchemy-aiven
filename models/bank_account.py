@@ -3,8 +3,8 @@ from sqlalchemy.orm import relationship
 from .database import Base
 
 class AccountType(Enum):
-    Savings account = 'STARTED'
-    Checking account = 'ACCEPTED'
+    savings_account = '普通口座'
+    checking_account = '当座'
 
 class BankAccount(Base):
     __tablename__ = 'bank_account'
