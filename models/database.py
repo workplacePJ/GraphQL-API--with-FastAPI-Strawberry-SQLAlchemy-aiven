@@ -1,26 +1,16 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-from decouple import config
-
-SQLALCHEMY_DATABASE_URL = config('POSTGRES_DB_URL')
-
-engine = create_engine(SQLALCHEMY_DATABASE_URL, echo = True)
-DBSession = sessionmaker(bind = engine, autoflush = False)
-Base = declarative_base() 
-
-
-
-
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "postgresql+asyncpg://<username>:<password>@<host>/<database>"
+from decouple import config
+
+DATABASE_URL = config('POSTGRES_DB_URL')
+#DATABASE_URL = 'postgresql+asyncpg://<username>:<password>@<host>/<database>'
+#DATABASE_URL = '{}://{}:{}@{}:{}/{}'.format('postgresql+asyncpg', 'admin', 'password', 'db', '5432', 'async_db')
 
 engine = create_async_engine(DATABASE_URL, echo=True)
-SessionLocal = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
+DBSession = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
 Base = declarative_base()
 
 async def get_db():
-    async with SessionLocal() as session:
+    async with DBSession() as session:
         yield session
