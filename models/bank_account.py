@@ -4,7 +4,7 @@ from .database import Base
 
 class AccountType(Enum):
     savings_account = '普通口座'
-    checking_account = '当座'
+    current_account = '当座'
 
 class BankAccount(Base):
     __tablename__ = 'bank_account'
@@ -22,18 +22,6 @@ class BankAccount(Base):
 
 
 
-
-  
-    scaler_id = Column(Integer, ForeignKey("scaler.id"))
-    scaler = relationship("Scaler", back_populates="model", uselist=False)
-
-
-
-
-
-    id = Column(Integer, primary_key=True)
-    content = Column(String)
-    is_done = Column(Boolean, default=False)
 
     def __repr__(self):
         return f'Task(id={self.id}, content={self.content}, is_done={self.is_done})'
