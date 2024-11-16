@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-SQLALCHEMY_DATABASE_URL = config("POSTGRES_DB_URL")
+SQLALCHEMY_DATABASE_URL = config('POSTGRES_DB_URL')
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=True)
 DBSession = sessionmaker(bind=engine, autoflush=False)
