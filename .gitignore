@@ -1,4 +1,12 @@
-__pycache__
-venv
-
+# Python関連
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
 .env
+
+# Docker関連
+*.log
+docker-compose.override.yml
