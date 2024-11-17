@@ -40,11 +40,11 @@ from .database import Base
 import enum
 
 class AccountType(str, enum.Enum):
-    普通口座 = "普通口座"
-    当座 = "当座"
+    普通口座 = '普通口座'
+    当座 = '当座'
     
 class BankAccount(Base):
-    __tablename__ = "bank_account"
+    __tablename__ = 'bank_account'
     
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     bank_name = Column(String, nullable=False)
