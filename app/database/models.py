@@ -40,12 +40,17 @@ class InvoiceItem(Base):
     invoice_id = Column(UUID(as_uuid=True), ForeignKey("invoice.id"), nullable=False)
     invoice = relationship("Invoice", back_populates="description")
 
+
+
+
+
+
 class BankAccount(Base):
-    __tablename__ = "bank_account"
+    __tablename__ = 'bank_account'
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     bank_name = Column(String, nullable=False)
     branch_name = Column(String, nullable=False)
-    account_type = Column(Enum("普通口座", "当座"), nullable=False)
+    account_type = Column(Enum('普通口座', '当座'), nullable=False)
     account_number = Column(String, nullable=False)
     account_holder = Column(String, nullable=False)
     holder_id = Column(UUID(as_uuid=True), ForeignKey("company.id"), nullable=False)
