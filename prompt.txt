@@ -72,3 +72,22 @@
 
 ###プロジェクトディレクトリ構造
 """
+api/
+│
+├── app/
+│ ├── __init__.py
+│ ├── main.py # FastAPIアプリケーションのエントリーポイント
+│ ├── core/
+│ │ ├── __init__.py
+│ │ ├── config.py # 設定
+│ │ └── database.py # データベース接続
+│ ├── models/
+│ │ ├── __init__.py
+│ │ ├── invoice.py # インボイスモデル
+│ │ ├── invoice_item.py # インボイス項目モデル
+│ │ ├── company.py # 会社モデル
+│ │ └── bank_account.py # 銀行口座モデル
+│ ├── schemas/
+│ │ ├── __init__.py
+│ │ ├── invoice.py # インボイススキーマ
+│ │ ├── invoice_item.py # インボイス項目スキーマ
