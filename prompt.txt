@@ -131,6 +131,7 @@ api/
     - quantity: *Required
     - tax_rate: *Required *Validation(percent: min_length=1, max_length=2, integer) *Dafault_value(10)
     - amount: *Required *Validation(price: JPY) *Auto_input((unit_price * quantity) + (unit_price * quantity * tax_rate / 100))
+    - remarks:
     - invoice_id: *Required *Relation(invoice)
 
 - table_name: company
@@ -147,6 +148,7 @@ api/
     - hp: *Validation(url)
     - president: *Required
     - company_seal: *Validation(url)
+    - invoice_registration_number: *Validation('T' + [0-9]{13}) # 'T'から始まり、'T'と13桁の半角数字からなる登録番号
     - business_name:
     - business_name_kana: *Validation(kana)
     - business_hp: *Validation(url)
