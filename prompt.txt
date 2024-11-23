@@ -119,8 +119,7 @@ api/
     - due_date: *Validation(date)
     - created_at: *Required *Validation(date) *Dafault_value(today: JST)
     - client_name: *Required
-    - total: *Required *Validation(price: JPY) *Auto_input(sum(list[invoice_item.amount of
-description]))
+    - total: *Required *Validation(price: JPY) *Auto_input(sum(list[invoice_item.amount of description]))
     - pdf_url: *Required *Validation(url)
     - description: *Required *Relation(invoice_item)
     - company_id: *Required *Relation(company)
@@ -130,10 +129,8 @@ description]))
     - item_name: *Required
     - unit_price: *Required *Validation(price: JPY)
     - quantity: *Required
-    - tax_rate: *Required *Validation(percent: min_length=1, max_length=2, integer)
-*Dafault_value(10)
-    - amount: *Required *Validation(price: JPY) *Auto_input((unit_price * quantity) +
-(unit_price * quantity * tax_rate / 100))
+    - tax_rate: *Required *Validation(percent: min_length=1, max_length=2, integer) *Dafault_value(10)
+    - amount: *Required *Validation(price: JPY) *Auto_input((unit_price * quantity) + (unit_price * quantity * tax_rate / 100))
     - invoice_id: *Required *Relation(invoice)
 
 - table_name: company
@@ -156,11 +153,12 @@ description]))
     - business_sns_links: *Validation(url)
     - bank_account: *Relation(bank_account)
     - invoice: *Relation(invoice)
+
 - table_name: bank_account
     - id: *Required *Dafault_value(uuid)
     - bank_name: *Required
     - branch_name: *Required
-    - account_type: *Required *Validation(account_type: enum['普通口座','当座'])
+    - account_type: *Required *Validation(account_type: enum['普通口座', '当座'])
     - account_number: *Required
     - account_holder: *Required
     - holder_id: *Required *Relation(company)
